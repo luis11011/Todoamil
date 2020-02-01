@@ -8,14 +8,26 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Node",
+"class": "Interactuable",
+"language": "GDScript",
+"path": "res://Interactuable.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://PlayerI.gd"
+} ]
 _global_script_class_icons={
-
+"Interactuable": "",
+"Player": ""
 }
 
 [application]
 
 config/name="Todoamil"
+run/main_scene="res://World.tscn"
 config/icon="res://icon.png"
 
 [rendering]

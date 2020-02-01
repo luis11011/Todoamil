@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/diagrama.png-e2c4c1b7522c21653599f2fc0c8d525b.stex"
+path="res://.import/coronao-export4.png-fc838c34db00617ef75679917d18288b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://diagrama.png"
-dest_files=[ "res://.import/diagrama.png-e2c4c1b7522c21653599f2fc0c8d525b.stex" ]
+source_file="res://Sprites/coronao-export4.png"
+dest_files=[ "res://.import/coronao-export4.png-fc838c34db00617ef75679917d18288b.stex" ]
 
 [params]
 

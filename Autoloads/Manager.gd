@@ -3,7 +3,6 @@ extends Node
 onready var root := get_tree().root
 onready var base_size := Vector2(322,181)
 
-
 func _ready():
 	get_tree().connect("screen_resized", self, "_on_screen_resized")
 	

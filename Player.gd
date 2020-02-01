@@ -3,6 +3,7 @@ class_name Player
 
 
 onready var interact_area : Area2D = $Interactuator as Area2D
+onready var asprite : AnimatedSprite = $AnimatedSprite as AnimatedSprite
 
 var MAX_SPEED = 120
 var ACCELERATION = 500
@@ -12,8 +13,12 @@ var motion = Vector2.ZERO
 func  _physics_process(delta): 
 	var axis = get_input_axis()
 	if axis == Vector2.ZERO:
+		asprite.animation = 'idle'
 		apply_friction(ACCELERATION * delta)
 	else: 
+		asprite.animation = 'walk'
+		if axis.x!=0:
+			asprite.flip_h = axis.x<0
 		apply_movement(axis * ACCELERATION * delta)
 	motion = move_and_slide(motion)
 
@@ -38,15 +43,12 @@ func apply_friction(amount):
 
 
 func apply_movement(acceleration):
-	print(acceleration)
 	motion += acceleration
 	motion = motion.clamped(MAX_SPEED )
 
 
 func interact():
 	var areas := interact_area.get_overlapping_areas()
-	print(areas)
 	if areas.size()>0:
 		var object = areas[0] as Interactuable
 		object.interact()
-		var tomado = object.name

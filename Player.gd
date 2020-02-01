@@ -49,3 +49,4 @@ func interact():
 	if areas.size()>0:
 		var object = areas[0] as Interactuable
 		object.interact()
+		var tomado = object.name

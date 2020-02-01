@@ -1,31 +1,61 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Pickable.gd" type="Script" id=2]
 [ext_resource path="res://diagrama.png" type="Texture" id=3]
+[ext_resource path="res://World.gd" type="Script" id=4]
+[ext_resource path="res://DropArea.gd" type="Script" id=5]
+[ext_resource path="res://icon.png" type="Texture" id=6]
 
-[sub_resource type="CircleShape2D" id=3]
+[sub_resource type="CircleShape2D" id=1]
 radius = 18.1089
 
+[sub_resource type="Curve2D" id=2]
+bake_interval = 3.24
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 301.157, 52.5565, 3.00414, -19.0262, -3.00414, 19.0262, 300.85, 84.5613, 0, 0, 0, 0, 285.405, 113.711, -4.00551, 17.0234, 4.00551, -17.0234, 281.824, 74.5475, 0, 0, 0, 0, 295.343, 53.5185 )
+}
+
 [node name="World" type="Node2D"]
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="diagrama" type="Sprite" parent="."]
 position = Vector2( 161, 90.5 )
 texture = ExtResource( 3 )
 
-[node name="Slots" type="Node2D" parent="."]
+[node name="Slots" type="Position2D" parent="."]
 position = Vector2( 0, -50 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 184.057, 100.893 )
 
-[node name="TablePosition" type="Node2D" parent="."]
+[node name="TablePosition" type="Position2D" parent="."]
 position = Vector2( 45, 0 )
 
 [node name="Pickable" type="Area2D" parent="TablePosition"]
+position = Vector2( 209.946, 101.302 )
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TablePosition/Pickable"]
 modulate = Color( 1, 0, 0, 1 )
-position = Vector2( 28.7394, 80.2308 )
-shape = SubResource( 3 )
+shape = SubResource( 1 )
+
+[node name="DropArea" type="Area2D" parent="TablePosition"]
+position = Vector2( 209.946, 101.302 )
+script = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TablePosition/DropArea"]
+modulate = Color( 1, 0, 0, 1 )
+shape = SubResource( 1 )
+
+[node name="ClientPath" type="Path2D" parent="."]
+curve = SubResource( 2 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="ClientPath"]
+
+[node name="Client" type="Sprite" parent="ClientPath/PathFollow2D"]
+position = Vector2( 353.698, -51.6943 )
+texture = ExtResource( 6 )

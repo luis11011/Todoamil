@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Pickable.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://World.gd" type="Script" id=4]
 [ext_resource path="res://DropArea.gd" type="Script" id=5]
 [ext_resource path="res://icon.png" type="Texture" id=6]
+[ext_resource path="res://ClientPath.gd" type="Script" id=7]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 18.1089
@@ -13,7 +14,7 @@ radius = 18.1089
 [sub_resource type="Curve2D" id=2]
 bake_interval = 3.24
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 301.157, 52.5565, 3.00414, -19.0262, -3.00414, 19.0262, 300.85, 84.5613, 0, 0, 0, 0, 285.405, 113.711, -4.00551, 17.0234, 4.00551, -17.0234, 281.824, 74.5475, 0, 0, 0, 0, 295.343, 53.5185 )
+"points": PoolVector2Array( 0, 0, 0, 0, 302.478, -10.8656, 7.59173, -26.863, -7.59173, 26.863, 294.915, 81.151, 0, 0, 0, 0, 276.888, 135.035, -5.25581, 26.2791, 5.25581, -26.2791, 294.915, 64.7645, 0, 0, 0, 0, 298.697, -9.60507 )
 }
 
 [node name="World" type="Node2D"]
@@ -53,9 +54,14 @@ shape = SubResource( 1 )
 
 [node name="ClientPath" type="Path2D" parent="."]
 curve = SubResource( 2 )
+script = ExtResource( 7 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="ClientPath"]
+position = Vector2( 302.478, -10.8656 )
+scale = Vector2( 0.5, 0.5 )
+rotate = false
 
 [node name="Client" type="Sprite" parent="ClientPath/PathFollow2D"]
-position = Vector2( 353.698, -51.6943 )
 texture = ExtResource( 6 )
+
+[node name="Position2D" type="Position2D" parent="."]

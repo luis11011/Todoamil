@@ -4,8 +4,8 @@ class_name Player
 
 onready var interact_area : Area2D = $Interactuator as Area2D
 
-var MAX_SPEED = 350
-var ACCELERATION = 1000
+var MAX_SPEED = 120
+var ACCELERATION = 500
 var motion = Vector2.ZERO
 		
 
@@ -32,7 +32,7 @@ func get_input_axis():
 	
 func apply_friction(amount):
 	if motion.length() > amount:
-		motion -= motion.normalized() * 30
+		motion -= motion.normalized() * (amount*1.5)
 	else:
 		motion = Vector2.ZERO
 

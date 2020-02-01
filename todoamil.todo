@@ -1,0 +1,29 @@
+☐ Objetos
+	☐ Franela
+	☐ Perro
+	☐ Bebé
+
+☐ Estados
+	☐ Sucio
+	☐ Roto
+		☐ Perro con hueco
+		☐ Perro fracturado
+	☐ Pintado
+	☐ Parcheado
+	
+☐ Estaciones
+	☐ Lavadora -> Limpia + Fractura
+	☐ Máquina de coser -> Repara franelas
+	☐ Gavetas de parches ->
+	☐ Ponchera / Batea -> Limpia
+	☐ Estación de pintura -> Pinta
+	☐ Papelera -> Ensucia
+	☐ Camilla de veterinario / pediatra -> Repara perros y bebés
+
+☐ Sprites
+	☐ Franela
+	☐ Franela rota
+	☐ Perro
+	☐ Perro roto
+	☐ X Sucio
+	☐ X Parcheado

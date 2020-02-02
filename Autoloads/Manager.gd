@@ -3,6 +3,8 @@ extends Node
 onready var root := get_tree().root
 onready var base_size := Vector2(322,181)
 
+var shirt = preload("res://Shirt.tscn")
+
 func _ready():
 	get_tree().connect("screen_resized", self, "_on_screen_resized")
 	

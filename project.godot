@@ -23,11 +23,17 @@ _global_script_classes=[ {
 "class": "Player",
 "language": "GDScript",
 "path": "res://Player.gd"
+}, {
+"base": "Pickable",
+"class": "Shirt",
+"language": "GDScript",
+"path": "res://Shirt.gd"
 } ]
 _global_script_class_icons={
 "Interactuable": "",
 "Pickable": "",
-"Player": ""
+"Player": "",
+"Shirt": ""
 }
 
 [application]

@@ -5,3 +5,7 @@ func interact():
 
 	if item:
 		item.done = true
+		var value = (item.painted + 1)%3
+		print (value)
+		item.painted = value
+		print(item)

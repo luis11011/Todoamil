@@ -48,8 +48,8 @@ func apply_movement(acceleration):
 
 
 func interact():
-	print("player interact()")
 	var areas := interact_area.get_overlapping_areas()
 	if areas.size()>0:
 		for area in areas:
-			area.interact()
+			if area.is_in_group("Interactuables"):
+				area.interact()

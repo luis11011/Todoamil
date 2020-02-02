@@ -62,7 +62,9 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="Shirt" type="Area2D"]
+[node name="Shirt" type="Area2D" groups=[
+"Interactuables",
+]]
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true

@@ -36,7 +36,6 @@ func set_state(value : int):
 	emit_signal("state_changed",state)
 	if state == WAITING:
 		emit_signal("put_item")
-	print("state",state)
 	if state==END:
 		yield(get_tree().create_timer(1.4),"timeout")
 		state = ARRIVING

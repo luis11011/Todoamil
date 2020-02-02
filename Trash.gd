@@ -7,3 +7,4 @@ func interact():
 		item.done = true
 		item.dirty = true
 		item.change_sprite()
+		return true

@@ -7,3 +7,4 @@ func interact():
 		item.done = true
 		item.toggle_paint()
 		item.change_sprite()
+		return true

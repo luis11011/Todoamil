@@ -9,6 +9,16 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Pickable",
+"class": "Baby",
+"language": "GDScript",
+"path": "res://Baby.gd"
+}, {
+"base": "Pickable",
+"class": "Dog",
+"language": "GDScript",
+"path": "res://Dog.gd"
+}, {
 "base": "Node",
 "class": "Interactuable",
 "language": "GDScript",
@@ -30,6 +40,8 @@ _global_script_classes=[ {
 "path": "res://Shirt.gd"
 } ]
 _global_script_class_icons={
+"Baby": "",
+"Dog": "",
 "Interactuable": "",
 "Pickable": "",
 "Player": "",

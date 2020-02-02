@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/table.png" type="Texture" id=2]
@@ -20,15 +20,13 @@
 [ext_resource path="res://Sprites/washer-sheet.png" type="Texture" id=18]
 [ext_resource path="res://Healer.gd" type="Script" id=19]
 [ext_resource path="res://Sprites/cama.png" type="Texture" id=20]
+[ext_resource path="res://Sprites/dialogo.png" type="Texture" id=21]
 
 [sub_resource type="CircleShape2D" id=11]
 radius = 18.1089
 
 [sub_resource type="RectangleShape2D" id=12]
 extents = Vector2( 10, 7 )
-
-[sub_resource type="RectangleShape2D" id=21]
-extents = Vector2( 16.3967, 12.0067 )
 
 [sub_resource type="AtlasTexture" id=23]
 atlas = ExtResource( 18 )
@@ -90,6 +88,9 @@ animations = [ {
 "name": "active",
 "speed": 12.0
 } ]
+
+[sub_resource type="RectangleShape2D" id=21]
+extents = Vector2( 16.3967, 12.0067 )
 
 [sub_resource type="AtlasTexture" id=13]
 atlas = ExtResource( 12 )
@@ -170,13 +171,22 @@ texture = ExtResource( 3 )
 position = Vector2( 231, 117 )
 texture = ExtResource( 2 )
 
+[node name="Dialog" type="Sprite" parent="."]
+position = Vector2( 242, 59 )
+texture = ExtResource( 21 )
+offset = Vector2( 1, 2 )
+
 [node name="Slots" type="Position2D" parent="."]
 position = Vector2( 36.186, 22.3691 )
 
-[node name="Painter" parent="." instance=ExtResource( 9 )]
+[node name="Painter" parent="." groups=[
+"Interactuables",
+] instance=ExtResource( 9 )]
 position = Vector2( 60.5, 79 )
 
-[node name="Trash" type="Area2D" parent="."]
+[node name="Trash" type="Area2D" parent="." groups=[
+"Interactuables",
+]]
 position = Vector2( 16.5, 123.5 )
 script = ExtResource( 8 )
 __meta__ = {
@@ -198,7 +208,59 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Trash/StaticBody2D"]
 shape = SubResource( 12 )
 
-[node name="Healer" type="Area2D" parent="."]
+[node name="WashMachine" type="Area2D" parent="." groups=[
+"Interactuables",
+]]
+position = Vector2( 104.633, 74 )
+script = ExtResource( 16 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WashMachine"]
+shape = SubResource( 11 )
+
+[node name="Sprite" type="AnimatedSprite" parent="WashMachine"]
+frames = SubResource( 28 )
+animation = "idle"
+playing = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WashMachine"]
+position = Vector2( 0, 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WashMachine/StaticBody2D"]
+shape = SubResource( 22 )
+
+[node name="Machine" type="Area2D" parent="." groups=[
+"Interactuables",
+]]
+position = Vector2( 149, 74 )
+script = ExtResource( 15 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Machine"]
+shape = SubResource( 11 )
+
+[node name="Sprite" type="AnimatedSprite" parent="Machine"]
+frames = SubResource( 20 )
+animation = "idle"
+playing = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Machine"]
+position = Vector2( 0, 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Machine/StaticBody2D"]
+shape = SubResource( 22 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 189.19, 132.72 )
+
+[node name="Healer" type="Area2D" parent="." groups=[
+"Interactuables",
+]]
 position = Vector2( 101, 165 )
 script = ExtResource( 19 )
 __meta__ = {
@@ -236,53 +298,9 @@ position = Vector2( 0, 4 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Patches/StaticBody2D"]
 shape = SubResource( 21 )
 
-[node name="WashMachine" type="Area2D" parent="."]
-position = Vector2( 104.633, 74 )
-script = ExtResource( 16 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WashMachine"]
-shape = SubResource( 11 )
-
-[node name="Sprite" type="AnimatedSprite" parent="WashMachine"]
-frames = SubResource( 28 )
-animation = "idle"
-playing = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="WashMachine"]
-position = Vector2( 0, 6 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WashMachine/StaticBody2D"]
-shape = SubResource( 22 )
-
-[node name="Machine" type="Area2D" parent="."]
-position = Vector2( 149, 74 )
-script = ExtResource( 15 )
-__meta__ = {
-"_edit_group_": true,
-"_edit_lock_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Machine"]
-shape = SubResource( 11 )
-
-[node name="Sprite" type="AnimatedSprite" parent="Machine"]
-frames = SubResource( 20 )
-animation = "idle"
-playing = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Machine"]
-position = Vector2( 0, 7 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Machine/StaticBody2D"]
-shape = SubResource( 22 )
-
-[node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 189.19, 132.72 )
-
-[node name="Batea" type="Area2D" parent="."]
+[node name="Batea" type="Area2D" parent="." groups=[
+"Interactuables",
+]]
 position = Vector2( 57, 163 )
 script = ExtResource( 11 )
 __meta__ = {
@@ -313,7 +331,9 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="DropArea" type="Area2D" parent="TablePosition"]
+[node name="DropArea" type="Area2D" parent="TablePosition" groups=[
+"Interactuables",
+]]
 script = ExtResource( 5 )
 __meta__ = {
 "_edit_group_": true

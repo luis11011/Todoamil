@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Batea.ogg-3d43fd11f558e5a32bdda945c7bc62bc.oggstr"
+
+[deps]
+
+source_file="res://Audio/SFX/Batea.ogg"
+dest_files=[ "res://.import/Batea.ogg-3d43fd11f558e5a32bdda945c7bc62bc.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

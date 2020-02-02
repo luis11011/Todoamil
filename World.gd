@@ -2,6 +2,7 @@ extends Node2D
 
 
 var client_array := []
+var client_array_constant := []
 
 enum {
 	TYPE,
@@ -18,22 +19,30 @@ enum {
 }
 
 func _ready():
+	
+	generate_array()
+	yield(get_tree().create_timer(2.0),"timeout")
+	$Title.visible = false
+	$ClientPath.start()
+
+
+func generate_array():
 	var file = File.new()
 	file.open("res://Levels.json", File.READ)
 	var json = file.get_as_text()
 	file.close()
 	var json_result = JSON.parse(json).result
+	client_array_constant = json_result.levels[0]
+	client_array = client_array_constant
 	
-	client_array = json_result.levels[0]
-	
-	yield(get_tree().create_timer(2.0),"timeout")
-	$Title.visible = false
-	$ClientPath.start()
+
 
 func generate_pickable():
 	var client_from_array = client_array.pop_front()
-	if !client_from_array:
-		pass
+	if client_from_array == null:
+		client_array = client_array_constant
+		client_from_array = client_array.pop_front()
+		
 		
 	var wanted = Manager.pickables[client_from_array[0]].instance() as Node
 	add_child(wanted)
@@ -64,7 +73,7 @@ func _on_ClientPath_client_going():
 	
 	var hint_nodes = $Dialog.get_children()
 	var nodes = $TablePosition.get_children()
-	
+
 	for node in nodes+hint_nodes:
 		if node.is_in_group("Pickables"):
 			node.queue_free()

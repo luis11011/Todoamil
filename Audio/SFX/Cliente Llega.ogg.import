@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Cliente Llega.ogg-cf4fe5f5fe87c678344435734d530bd2.oggstr"
+
+[deps]
+
+source_file="res://Audio/SFX/Cliente Llega.ogg"
+dest_files=[ "res://.import/Cliente Llega.ogg-cf4fe5f5fe87c678344435734d530bd2.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

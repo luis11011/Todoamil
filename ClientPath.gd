@@ -16,6 +16,8 @@ export var speed = 100.0
 var state := END setget set_state
 
 func _ready():
+
+	
 	self.state = END
 	middle_point = curve.get_closest_offset(Vector2(280,140)) as float
 	end_point = curve.get_baked_length() as float
@@ -39,8 +41,10 @@ func set_state(value : int):
 	state = value
 	emit_signal("state_changed",state)
 	if state == WAITING:
+		play_audio()
 		emit_signal("put_item")
 	elif state == GOING:
+
 		emit_signal("client_going")
 	if state==END:
 		yield(get_tree().create_timer(1.4),"timeout")
@@ -49,9 +53,14 @@ func set_state(value : int):
 		$PathFollow2D/Client.frame += 1
 		emit_signal("state_changed",state)
 
+
+func play_audio():
+	$AudioStreamPlayer.pitch_scale = rand_range(0.8,1.2)
+	$AudioStreamPlayer.play()
+	return true
 	
 func on_item_dropped():
-	
+
 	yield(get_tree().create_timer(0.7),"timeout")
 	
 	self.state = GOING

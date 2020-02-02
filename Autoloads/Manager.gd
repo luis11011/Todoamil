@@ -1,7 +1,7 @@
 extends Node
 
 onready var root := get_tree().root
-onready var base_size := Vector2(322,181)
+onready var base_size := root.get_visible_rect().size
 
 var shirt = preload("res://Shirt.tscn")
 var dog = preload("res://Dog.tscn")

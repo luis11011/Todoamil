@@ -49,7 +49,6 @@ func generate_pickable():
 	wanted.dirty = client_from_array[WANTED][DIRTY]
 	wanted.broken = client_from_array[WANTED][BROKEN]
 	wanted.painted = client_from_array[WANTED][PAINTED]
-	wanted.patched = client_from_array[WANTED][PATCHED]
 	wanted.hole = client_from_array[WANTED][HOLE]
 	wanted.change_sprite()
 	wanted.dialog()	
@@ -59,7 +58,6 @@ func generate_pickable():
 	object.dirty = client_from_array[STATUS][DIRTY]
 	object.broken = client_from_array[STATUS][BROKEN]
 	object.painted = client_from_array[STATUS][PAINTED]
-	object.patched = client_from_array[STATUS][PATCHED]
 	object.hole = client_from_array[STATUS][HOLE]
 	object.change_sprite()
 	object.put()
@@ -71,9 +69,31 @@ func on_put_item():
 
 func _on_ClientPath_client_going():
 	
-	var hint_nodes = $Dialog.get_children()
+	var hint_node = $Dialog.get_children()[0]
 	var nodes = $TablePosition.get_children()
+	var node = null
+	for n in nodes:
+		if n.is_in_group('Pickables'):
+			node = n
+	
+	var properties = ['dirty','hole','painted','broken']
+	
+	var good = true
+	
+	for property in properties:
+		if node[property]!=hint_node[property]:
+			good = false
+			break
+			
+	play_client(good)
+	
+	node.queue_free()
+	hint_node.queue_free()
 
-	for node in nodes+hint_nodes:
-		if node.is_in_group("Pickables"):
-			node.queue_free()
+
+func play_client(good):
+	if good:
+		$ClienteFeliz.play()
+	else:
+		$ClienteEnojado.play()
+	

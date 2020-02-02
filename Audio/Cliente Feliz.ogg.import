@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Cliente Feliz.ogg-482ae830731115f7aae51af141ee4331.oggstr"
+
+[deps]
+
+source_file="res://Audio/Cliente Feliz.ogg"
+dest_files=[ "res://.import/Cliente Feliz.ogg-482ae830731115f7aae51af141ee4331.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

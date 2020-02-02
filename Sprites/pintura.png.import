@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/coronao-export5.png-2a48876aab0a41f00f0aa9f04b6f5d9d.stex"
+path="res://.import/pintura.png-73b76e5f00dc5249c6aa843c58361314.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/coronao-export5.png"
-dest_files=[ "res://.import/coronao-export5.png-2a48876aab0a41f00f0aa9f04b6f5d9d.stex" ]
+source_file="res://Sprites/pintura.png"
+dest_files=[ "res://.import/pintura.png-73b76e5f00dc5249c6aa843c58361314.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

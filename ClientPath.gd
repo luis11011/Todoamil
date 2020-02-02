@@ -37,10 +37,13 @@ func set_state(value : int):
 	if state==END:
 		yield(get_tree().create_timer(1.4),"timeout")
 		state = ARRIVING
+		$PathFollow2D/Client.flip_h = false
+		$PathFollow2D/Client.frame += 1
 		emit_signal("state_changed",state)
 
 	
 func on_item_dropped():
 	yield(get_tree().create_timer(0.7),"timeout")
 	self.state = GOING
+	$PathFollow2D/Client.flip_h = true
 	

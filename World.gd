@@ -11,11 +11,10 @@ enum {
 }
 
 enum {
-	DIRTY,
-	BROKEN,
-	HOLE,
 	PAINTED,
-	PATCHED
+	DIRTY,
+	HOLE,
+	BROKEN
 }
 
 func _ready():

@@ -4,12 +4,15 @@ onready var root := get_tree().root
 onready var base_size := Vector2(322,181)
 
 var shirt = preload("res://Shirt.tscn")
+var dog = preload("res://Dog.tscn")
+var baby = preload("res://Baby.tscn")
+
+var pickables := [shirt, dog, baby]
 
 func _ready():
 	get_tree().connect("screen_resized", self, "_on_screen_resized")
 	
 	root.set_attach_to_screen_rect(root.get_visible_rect())
-	OS.set_window_size(OS.window_size*2)
 	_on_screen_resized()
 
 

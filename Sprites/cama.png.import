@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/batea-sheet.png-28a12a313b9c63ff184ab5caa12a69b0.stex"
+path="res://.import/cama.png-61096be0a911a620bc90134883d8a893.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/batea-sheet.png"
-dest_files=[ "res://.import/batea-sheet.png-28a12a313b9c63ff184ab5caa12a69b0.stex" ]
+source_file="res://Sprites/cama.png"
+dest_files=[ "res://.import/cama.png-61096be0a911a620bc90134883d8a893.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

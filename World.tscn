@@ -1,13 +1,120 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Sprites/table.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/fondo.png" type="Texture" id=3]
 [ext_resource path="res://World.gd" type="Script" id=4]
 [ext_resource path="res://DropArea.gd" type="Script" id=5]
 [ext_resource path="res://Sprites/clients-sheet.png" type="Texture" id=6]
 [ext_resource path="res://ClientPath.gd" type="Script" id=7]
-[ext_resource path="res://Doner.gd" type="Script" id=8]
-[ext_resource path="res://Shirt.tscn" type="PackedScene" id=28]
+[ext_resource path="res://Trash.gd" type="Script" id=8]
+[ext_resource path="res://Painter.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Sprites/basura.png" type="Texture" id=10]
+[ext_resource path="res://Batea.gd" type="Script" id=11]
+[ext_resource path="res://Sprites/batea-sheet.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/wall-door.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/machine - sheet.png" type="Texture" id=14]
+[ext_resource path="res://Machine.gd" type="Script" id=15]
+[ext_resource path="res://WashMachine.gd" type="Script" id=16]
+[ext_resource path="res://Sprites/telas.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/washer-sheet.png" type="Texture" id=18]
+[ext_resource path="res://Healer.gd" type="Script" id=19]
+[ext_resource path="res://Sprites/cama.png" type="Texture" id=20]
+
+[sub_resource type="CircleShape2D" id=11]
+radius = 18.1089
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 10, 7 )
+
+[sub_resource type="RectangleShape2D" id=21]
+extents = Vector2( 16.3967, 12.0067 )
+
+[sub_resource type="AtlasTexture" id=23]
+atlas = ExtResource( 18 )
+region = Rect2( 0, 0, 33, 40 )
+
+[sub_resource type="AtlasTexture" id=24]
+atlas = ExtResource( 18 )
+region = Rect2( 33, 0, 33, 40 )
+
+[sub_resource type="AtlasTexture" id=25]
+atlas = ExtResource( 18 )
+region = Rect2( 66, 0, 33, 40 )
+
+[sub_resource type="AtlasTexture" id=26]
+atlas = ExtResource( 18 )
+region = Rect2( 99, 0, 33, 40 )
+
+[sub_resource type="AtlasTexture" id=27]
+atlas = ExtResource( 18 )
+region = Rect2( 132, 0, 33, 40 )
+
+[sub_resource type="SpriteFrames" id=28]
+animations = [ {
+"frames": [ SubResource( 23 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ) ],
+"loop": true,
+"name": "active",
+"speed": 12.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=22]
+extents = Vector2( 17.1789, 8.1388 )
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 14 )
+region = Rect2( 0, 0, 38, 43 )
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 14 )
+region = Rect2( 0, 0, 38, 43 )
+
+[sub_resource type="AtlasTexture" id=19]
+atlas = ExtResource( 14 )
+region = Rect2( 38, 0, 38, 43 )
+
+[sub_resource type="SpriteFrames" id=20]
+animations = [ {
+"frames": [ SubResource( 17 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 18 ), SubResource( 19 ) ],
+"loop": true,
+"name": "active",
+"speed": 12.0
+} ]
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 12 )
+region = Rect2( 0, 0, 20, 27 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 12 )
+region = Rect2( 20, 0, 20, 27 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 12 )
+region = Rect2( 40, 0, 20, 27 )
+
+[sub_resource type="SpriteFrames" id=16]
+animations = [ {
+"frames": [ SubResource( 13 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 14 ), SubResource( 15 ) ],
+"loop": true,
+"name": "active",
+"speed": 8.0
+} ]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 18.1089
@@ -18,39 +125,35 @@ _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 302.478, -10.8656, 7.59173, -26.863, -7.59173, 26.863, 294.915, 81.151, 0, 0, 0, 0, 276.888, 135.035, -5.25581, 26.2791, 5.25581, -26.2791, 294.915, 64.7645, 0, 0, 0, 0, 298.697, -9.60507 )
 }
 
-[sub_resource type="AtlasTexture" id=6]
-flags = 4
+[sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 6 )
 region = Rect2( 0, 0, 24, 60 )
 
-[sub_resource type="AtlasTexture" id=7]
-flags = 4
+[sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 6 )
 region = Rect2( 24, 0, 24, 60 )
 
-[sub_resource type="AtlasTexture" id=8]
-flags = 4
+[sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 6 )
 region = Rect2( 48, 0, 24, 60 )
 
-[sub_resource type="AtlasTexture" id=9]
-flags = 4
+[sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 6 )
 region = Rect2( 72, 0, 24, 60 )
 
-[sub_resource type="SpriteFrames" id=5]
+[sub_resource type="SpriteFrames" id=8]
 animations = [ {
-"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ) ],
+"frames": [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=9]
 resource_local_to_scene = true
-extents = Vector2( 13.7236, 92.216 )
+extents = Vector2( 14, 92 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 120.416, 10 )
 
 [node name="World" type="Node2D"]
@@ -60,33 +163,155 @@ __meta__ = {
 }
 
 [node name="diagrama" type="Sprite" parent="."]
-position = Vector2( 161, 91.5 )
+position = Vector2( 161, 90.5 )
 texture = ExtResource( 3 )
+
+[node name="Table" type="Sprite" parent="."]
+position = Vector2( 231, 117 )
+texture = ExtResource( 2 )
 
 [node name="Slots" type="Position2D" parent="."]
 position = Vector2( 36.186, 22.3691 )
 
-[node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 184.057, 100.893 )
+[node name="Painter" parent="." instance=ExtResource( 9 )]
+position = Vector2( 60.5, 79 )
 
-[node name="Doner" type="Area2D" parent="."]
-position = Vector2( 90.8664, 65.3014 )
+[node name="Trash" type="Area2D" parent="."]
+position = Vector2( 16.5, 123.5 )
 script = ExtResource( 8 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Doner"]
-modulate = Color( 1, 0, 0, 1 )
-shape = SubResource( 1 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trash"]
+shape = SubResource( 11 )
 
-[node name="TablePosition" type="Position2D" parent="."]
-position = Vector2( 235.955, 119.993 )
+[node name="Sprite" type="Sprite" parent="Trash"]
+texture = ExtResource( 10 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Trash"]
+position = Vector2( 0, -4 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Shirt" parent="TablePosition" instance=ExtResource( 28 )]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trash/StaticBody2D"]
+shape = SubResource( 12 )
+
+[node name="Healer" type="Area2D" parent="."]
+position = Vector2( 101, 165 )
+script = ExtResource( 19 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Healer"]
+shape = SubResource( 11 )
+
+[node name="Sprite" type="Sprite" parent="Healer"]
+texture = ExtResource( 20 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Healer"]
+position = Vector2( 0, 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Healer/StaticBody2D"]
+shape = SubResource( 21 )
+
+[node name="Patches" type="Area2D" parent="."]
+position = Vector2( 150, 161 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Patches"]
+shape = SubResource( 11 )
+
+[node name="Sprite" type="Sprite" parent="Patches"]
+texture = ExtResource( 17 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Patches"]
+position = Vector2( 0, 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Patches/StaticBody2D"]
+shape = SubResource( 21 )
+
+[node name="WashMachine" type="Area2D" parent="."]
+position = Vector2( 104.633, 74 )
+script = ExtResource( 16 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WashMachine"]
+shape = SubResource( 11 )
+
+[node name="Sprite" type="AnimatedSprite" parent="WashMachine"]
+frames = SubResource( 28 )
+animation = "idle"
+playing = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WashMachine"]
+position = Vector2( 0, 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WashMachine/StaticBody2D"]
+shape = SubResource( 22 )
+
+[node name="Machine" type="Area2D" parent="."]
+position = Vector2( 149, 74 )
+script = ExtResource( 15 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Machine"]
+shape = SubResource( 11 )
+
+[node name="Sprite" type="AnimatedSprite" parent="Machine"]
+frames = SubResource( 20 )
+animation = "idle"
+playing = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Machine"]
+position = Vector2( 0, 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Machine/StaticBody2D"]
+shape = SubResource( 22 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 189.19, 132.72 )
+
+[node name="Batea" type="Area2D" parent="."]
+position = Vector2( 57, 163 )
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Batea"]
+shape = SubResource( 11 )
+
+[node name="Sprite" type="AnimatedSprite" parent="Batea"]
+frames = SubResource( 16 )
+animation = "idle"
+playing = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Batea"]
+position = Vector2( 0, -4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Batea/StaticBody2D"]
+shape = SubResource( 12 )
+
+[node name="TablePosition" type="Position2D" parent="."]
+position = Vector2( 231.676, 112 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="DropArea" type="Area2D" parent="TablePosition"]
 script = ExtResource( 5 )
@@ -111,36 +336,43 @@ position = Vector2( 302.478, -10.8656 )
 rotate = false
 
 [node name="Client" type="AnimatedSprite" parent="ClientPath/PathFollow2D"]
-frames = SubResource( 5 )
+frames = SubResource( 8 )
 offset = Vector2( 0, -28 )
+
+[node name="WallDoor" type="Sprite" parent="."]
+position = Vector2( 291, 39.5 )
+texture = ExtResource( 13 )
 
 [node name="Position2D" type="Position2D" parent="."]
 
-[node name="Wall" type="StaticBody2D" parent="."]
+[node name="Wall1" type="StaticBody2D" parent="."]
 position = Vector2( 6.53319, 93.7537 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall1"]
 position = Vector2( -14.3697, 0 )
-shape = SubResource( 4 )
+shape = SubResource( 9 )
 
 [node name="Wall2" type="StaticBody2D" parent="."]
 position = Vector2( 68.2978, 120.224 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2"]
-position = Vector2( 59.2436, -52.689 )
-shape = SubResource( 5 )
+position = Vector2( 44.9476, -52.689 )
+shape = SubResource( 10 )
 
 [node name="Wall3" type="StaticBody2D" parent="."]
 position = Vector2( 68.2978, 120.224 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall3"]
 position = Vector2( 57.9831, 56.7226 )
-shape = SubResource( 5 )
+shape = SubResource( 10 )
 
-[node name="Table" type="StaticBody2D" parent="."]
-position = Vector2( 183.003, 88.7117 )
+[node name="Wall4" type="StaticBody2D" parent="."]
+position = Vector2( 225, 90 )
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Table"]
-position = Vector2( 52.6259, 0.0630341 )
-shape = SubResource( 4 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall4"]
+shape = SubResource( 9 )
 [connection signal="item_dropped" from="TablePosition/DropArea" to="ClientPath" method="on_item_dropped"]
+[connection signal="put_item" from="ClientPath" to="." method="on_put_item"]

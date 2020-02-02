@@ -6,57 +6,69 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 18.1089
 
-[sub_resource type="AtlasTexture" id=2]
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 30, 24 )
 
-[sub_resource type="AtlasTexture" id=3]
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 90, 0, 30, 24 )
 
-[sub_resource type="AtlasTexture" id=4]
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 180, 0, 30, 24 )
 
-[sub_resource type="AtlasTexture" id=5]
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 270, 0, 30, 24 )
 
-[sub_resource type="AtlasTexture" id=6]
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 30, 0, 30, 24 )
 
-[sub_resource type="AtlasTexture" id=7]
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 120, 0, 30, 24 )
 
-[sub_resource type="AtlasTexture" id=8]
+[sub_resource type="AtlasTexture" id=9]
+flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 210, 0, 30, 24 )
 
-[sub_resource type="AtlasTexture" id=9]
+[sub_resource type="AtlasTexture" id=10]
+flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 300, 0, 30, 24 )
 
-[sub_resource type="AtlasTexture" id=10]
+[sub_resource type="AtlasTexture" id=11]
+flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 60, 0, 30, 24 )
 
-[sub_resource type="AtlasTexture" id=11]
+[sub_resource type="AtlasTexture" id=12]
+flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 150, 0, 30, 24 )
 
-[sub_resource type="AtlasTexture" id=12]
+[sub_resource type="AtlasTexture" id=13]
+flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 240, 0, 30, 24 )
 
-[sub_resource type="AtlasTexture" id=13]
+[sub_resource type="AtlasTexture" id=14]
+flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 330, 0, 30, 24 )
 
-[sub_resource type="SpriteFrames" id=14]
+[sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
+"frames": [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ) ],
 "loop": true,
 "name": "shirt",
 "speed": 5.0
@@ -72,7 +84,7 @@ __meta__ = {
 modulate = Color( 1, 0, 0, 1 )
 shape = SubResource( 1 )
 
-[node name="Sprite" type="AnimatedSprite" parent="."]
-frames = SubResource( 14 )
+[node name="sprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 2 )
 animation = "shirt"
 speed_scale = 0.0

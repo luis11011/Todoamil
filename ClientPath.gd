@@ -6,6 +6,7 @@ var end_point := 140.0
 onready var path_follow = $PathFollow2D as PathFollow2D
 
 signal state_changed(state)
+signal put_item
 
 enum { ARRIVING, WAITING, GOING, END }
 
@@ -33,6 +34,8 @@ func _process(delta):
 func set_state(value : int):
 	state = value
 	emit_signal("state_changed",state)
+	if state == WAITING:
+		emit_signal("put_item")
 	print("state",state)
 	if state==END:
 		yield(get_tree().create_timer(1.4),"timeout")

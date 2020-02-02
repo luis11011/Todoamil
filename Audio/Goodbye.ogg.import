@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Goodbye.ogg-68630186cc75ae826ae735094b76f12f.oggstr"
+
+[deps]
+
+source_file="res://Audio/Goodbye.ogg"
+dest_files=[ "res://.import/Goodbye.ogg-68630186cc75ae826ae735094b76f12f.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

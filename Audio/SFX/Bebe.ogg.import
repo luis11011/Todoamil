@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Bebe.ogg-e3f920e34f05ec3b46b028fa3c208d87.oggstr"
+
+[deps]
+
+source_file="res://Audio/SFX/Bebe.ogg"
+dest_files=[ "res://.import/Bebe.ogg-e3f920e34f05ec3b46b028fa3c208d87.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

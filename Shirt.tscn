@@ -64,6 +64,7 @@ animations = [ {
 
 [node name="Shirt" type="Area2D" groups=[
 "Interactuables",
+"Pickables",
 ]]
 script = ExtResource( 1 )
 __meta__ = {
@@ -78,3 +79,4 @@ shape = SubResource( 1 )
 frames = SubResource( 14 )
 animation = "shirt"
 speed_scale = 0.0
+offset = Vector2( 1, -1 )

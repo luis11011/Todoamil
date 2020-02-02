@@ -53,6 +53,7 @@ animations = [ {
 
 [node name="Dog" type="Area2D" groups=[
 "Interactuables",
+"Pickables",
 ]]
 script = ExtResource( 1 )
 __meta__ = {

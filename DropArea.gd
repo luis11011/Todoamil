@@ -9,8 +9,7 @@ func interact():
 	
 	var item = get_from_slot(0)
 
-	if item:
-		if item.done:
-			item.queue_free()
-			emit_signal("item_dropped")
+	if item and item.done:
+		item.drop()
+		emit_signal("item_dropped")
 		return true

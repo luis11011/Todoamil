@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Bolsa.ogg-2e6deaf4e30a7bdb8eb949931dbfcd2d.oggstr"
+
+[deps]
+
+source_file="res://Audio/SFX/Bolsa.ogg"
+dest_files=[ "res://.import/Bolsa.ogg-2e6deaf4e30a7bdb8eb949931dbfcd2d.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

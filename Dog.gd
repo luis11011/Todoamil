@@ -14,6 +14,7 @@ func wash_machine():
 		self.dirty = false
 		self.broken = true
 		self.hole = false
+		self.play()
 		change_sprite()
 		return true
 	return false

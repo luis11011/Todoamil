@@ -25,6 +25,10 @@ func _ready():
 	var json_result = JSON.parse(json).result
 	
 	client_array = json_result.levels[0]
+	
+	yield(get_tree().create_timer(2.0),"timeout")
+	$Title.visible = false
+	$ClientPath.start()
 
 func generate_pickable():
 	var client_from_array = client_array.pop_front()
@@ -54,3 +58,13 @@ func generate_pickable():
 	
 func on_put_item():
 	generate_pickable()
+
+
+func _on_ClientPath_client_going():
+	
+	var hint_nodes = $Dialog.get_children()
+	var nodes = $TablePosition.get_children()
+	
+	for node in nodes+hint_nodes:
+		if node.is_in_group("Pickables"):
+			node.queue_free()

@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Baby.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/baby-sheet.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/baby-dirty.png" type="Texture" id=3]
+[ext_resource path="res://Audio/SFX/Bebe.ogg" type="AudioStream" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 18.1089
@@ -49,6 +50,7 @@ animations = [ {
 
 [node name="Baby" type="Area2D" groups=[
 "Interactuables",
+"Pickables",
 ]]
 script = ExtResource( 1 )
 __meta__ = {
@@ -63,7 +65,11 @@ shape = SubResource( 1 )
 frames = SubResource( 10 )
 frame = 5
 speed_scale = 0.0
+offset = Vector2( 0, -1 )
 
 [node name="SpriteDirty" type="Sprite" parent="."]
 texture = ExtResource( 3 )
-offset = Vector2( 2, -1 )
+offset = Vector2( 2, -2 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )

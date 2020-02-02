@@ -7,3 +7,4 @@ func interact():
 		item.done = true
 		item.broken = false
 		item.change_sprite()
+		item.play()

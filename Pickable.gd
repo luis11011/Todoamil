@@ -3,6 +3,7 @@ class_name Pickable
   
 onready var sprite = get_node("Sprite")
 onready var sprite_dirty = get_node("SpriteDirty")
+onready var audio_stream_player = get_node("AudioStreamPlayer")
 
 export var paint_alternatives = 2
 
@@ -18,17 +19,26 @@ var done := false
 
 	
 func interact():
-	pickedup = true
-	change_sprite()
-	var new_parent := $"/root/World/Slots" as Node2D
-	if get_parent():
-		get_parent().remove_child(self)
-	new_parent.add_child(self)
-	return true
+	if !done:
+		pickedup = true
+		change_sprite()
+		var new_parent := $"/root/World/Slots" as Node2D
+		if get_parent():
+			get_parent().remove_child(self)
+		new_parent.add_child(self)
+		return true
 
 
 func put():
 	pickedup = false
+	change_sprite()
+	var new_parent := $"/root/World/TablePosition" as Node2D
+	if get_parent():
+		get_parent().remove_child(self)
+	new_parent.add_child(self)
+
+
+func drop():
 	change_sprite()
 	var new_parent := $"/root/World/TablePosition" as Node2D
 	if get_parent():
@@ -69,6 +79,12 @@ func wash_machine():
 		change_sprite()
 		return true
 	return false
+
+
+func play():
+	if audio_stream_player:
+		audio_stream_player.play()
+
 
 func toggle_paint():
 	painted = (painted + 1)%paint_alternatives

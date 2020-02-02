@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=59 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/table.png" type="Texture" id=2]
@@ -8,7 +8,7 @@
 [ext_resource path="res://Sprites/clients-sheet.png" type="Texture" id=6]
 [ext_resource path="res://ClientPath.gd" type="Script" id=7]
 [ext_resource path="res://Trash.gd" type="Script" id=8]
-[ext_resource path="res://Painter.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Sprites/pintura.png" type="Texture" id=9]
 [ext_resource path="res://Sprites/basura.png" type="Texture" id=10]
 [ext_resource path="res://Batea.gd" type="Script" id=11]
 [ext_resource path="res://Sprites/batea-sheet.png" type="Texture" id=12]
@@ -21,6 +21,20 @@
 [ext_resource path="res://Healer.gd" type="Script" id=19]
 [ext_resource path="res://Sprites/cama.png" type="Texture" id=20]
 [ext_resource path="res://Sprites/dialogo.png" type="Texture" id=21]
+[ext_resource path="res://Dialog.gd" type="Script" id=22]
+[ext_resource path="res://Sprites/Title.png" type="Texture" id=23]
+[ext_resource path="res://Audio/music.ogg" type="AudioStream" id=24]
+[ext_resource path="res://Painter.gd" type="Script" id=25]
+[ext_resource path="res://Audio/SFX/Maquina de coser.ogg" type="AudioStream" id=26]
+[ext_resource path="res://Audio/SFX/Entrega.ogg" type="AudioStream" id=27]
+[ext_resource path="res://Audio/SFX/Bolsa.ogg" type="AudioStream" id=28]
+[ext_resource path="res://Audio/SFX/Lavadora.ogg" type="AudioStream" id=29]
+
+[sub_resource type="CircleShape2D" id=29]
+radius = 18.1089
+
+[sub_resource type="RectangleShape2D" id=30]
+extents = Vector2( 17.5597, 10 )
 
 [sub_resource type="CircleShape2D" id=11]
 radius = 18.1089
@@ -163,7 +177,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="diagrama" type="Sprite" parent="."]
+[node name="Background" type="Sprite" parent="."]
 position = Vector2( 161, 90.5 )
 texture = ExtResource( 3 )
 
@@ -172,17 +186,37 @@ position = Vector2( 231, 117 )
 texture = ExtResource( 2 )
 
 [node name="Dialog" type="Sprite" parent="."]
+visible = false
 position = Vector2( 242, 59 )
 texture = ExtResource( 21 )
 offset = Vector2( 1, 2 )
+script = ExtResource( 22 )
 
 [node name="Slots" type="Position2D" parent="."]
 position = Vector2( 36.186, 22.3691 )
 
-[node name="Painter" parent="." groups=[
+[node name="Painter" type="Area2D" parent="." groups=[
 "Interactuables",
-] instance=ExtResource( 9 )]
-position = Vector2( 60.5, 79 )
+]]
+position = Vector2( 60.5, 79.5 )
+script = ExtResource( 25 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Painter"]
+shape = SubResource( 29 )
+
+[node name="Sprite" type="Sprite" parent="Painter"]
+texture = ExtResource( 9 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Painter"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Painter/StaticBody2D"]
+shape = SubResource( 30 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Painter"]
+stream = ExtResource( 27 )
 
 [node name="Trash" type="Area2D" parent="." groups=[
 "Interactuables",
@@ -208,6 +242,9 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Trash/StaticBody2D"]
 shape = SubResource( 12 )
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Trash"]
+stream = ExtResource( 28 )
+
 [node name="WashMachine" type="Area2D" parent="." groups=[
 "Interactuables",
 ]]
@@ -230,6 +267,9 @@ position = Vector2( 0, 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WashMachine/StaticBody2D"]
 shape = SubResource( 22 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="WashMachine"]
+stream = ExtResource( 29 )
 
 [node name="Machine" type="Area2D" parent="." groups=[
 "Interactuables",
@@ -255,13 +295,16 @@ position = Vector2( 0, 7 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Machine/StaticBody2D"]
 shape = SubResource( 22 )
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Machine"]
+stream = ExtResource( 26 )
+
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 189.19, 132.72 )
 
 [node name="Healer" type="Area2D" parent="." groups=[
 "Interactuables",
 ]]
-position = Vector2( 101, 165 )
+position = Vector2( 101.5, 165 )
 script = ExtResource( 19 )
 __meta__ = {
 "_edit_group_": true
@@ -280,7 +323,7 @@ position = Vector2( 0, 4 )
 shape = SubResource( 21 )
 
 [node name="Patches" type="Area2D" parent="."]
-position = Vector2( 150, 161 )
+position = Vector2( 150.5, 161 )
 __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true
@@ -324,6 +367,9 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Batea/StaticBody2D"]
 shape = SubResource( 12 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Batea"]
+stream = ExtResource( 26 )
 
 [node name="TablePosition" type="Position2D" parent="."]
 position = Vector2( 231.676, 112 )
@@ -394,5 +440,17 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall4"]
 shape = SubResource( 9 )
+
+[node name="Title" type="Sprite" parent="."]
+position = Vector2( 162.892, 91.6654 )
+texture = ExtResource( 23 )
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 24 )
+volume_db = -6.0
+autoplay = true
 [connection signal="item_dropped" from="TablePosition/DropArea" to="ClientPath" method="on_item_dropped"]
+[connection signal="client_going" from="ClientPath" to="Dialog" method="_on_ClientPath_client_going"]
+[connection signal="client_going" from="ClientPath" to="." method="_on_ClientPath_client_going"]
+[connection signal="put_item" from="ClientPath" to="Dialog" method="_on_ClientPath_put_item"]
 [connection signal="put_item" from="ClientPath" to="." method="on_put_item"]
